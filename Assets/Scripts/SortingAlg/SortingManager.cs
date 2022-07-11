@@ -8,7 +8,7 @@ using System;
 public class SortingManager : MonoBehaviour
 {
     public GameObject warning;
-    public GameObject resultBtn;
+    public GameObject[] Btns;
     public Button back;
     public TMP_Dropdown algoSelect;
     public HorizontalLayoutGroup initialArray;
@@ -28,26 +28,15 @@ public class SortingManager : MonoBehaviour
             StartCoroutine(WarningSign());
             return;
         }
-        if(algoCount == 1)
+        if (algoCount == 1)
         {
             gameObject.GetComponent<Bubble>().BubbleSort(call);
             back.onClick.Invoke();
         }
-
-
-
-
-        if(call == 0)//Asc
+        foreach (var b in Btns)
         {
-            initialArray.reverseArrangement = true;
-            graphData.reverseArrangement = true;
+            b.SetActive(true);
         }
-        if(call == 1)//dec
-        {
-            initialArray.reverseArrangement = false;
-            graphData.reverseArrangement = false;
-        }
-        resultBtn.SetActive(true);
     }
 
     private IEnumerator WarningSign()

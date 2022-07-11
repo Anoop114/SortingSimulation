@@ -82,6 +82,7 @@ public class Bubble : MonoBehaviour
                 GameObject child = Instantiate(ArrayPanal.transform.GetChild(k).gameObject);
                 child.transform.SetParent(resultManager.Steps[i].transform);
                 resultManager.Steps[i].SetActive(true);
+
             }
         }
     }
