@@ -11,7 +11,7 @@ public class ResultManager : MonoBehaviour
     {
         //delete data first arr.
         int childs = ActualArray.transform.childCount;
-        for (int i = childs - 1; i >= 1; i--)
+        for (int i = childs - 1; i >= 0; i--)
         {
             Destroy(ActualArray.transform.GetChild(i).gameObject);
         }
@@ -19,10 +19,11 @@ public class ResultManager : MonoBehaviour
         foreach (GameObject arrData in Steps)
         {
             childs = arrData.transform.childCount;
-            for (int i = childs - 1; i >= 1; i--)
+            for (int i = childs - 1; i >= 0; i--)
             {
                 Destroy(arrData.transform.GetChild(i).gameObject);
             }
+            arrData.SetActive(false);
         }
 
     }

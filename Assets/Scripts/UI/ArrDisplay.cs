@@ -8,7 +8,7 @@ public class ArrDisplay : MonoBehaviour
     public GameObject dataSet;
     public GameObject LayoutDataSet;
 
-    [Range(0, 13)]public int num;
+    [Range(0, 15)]public int num;
 
     [HideInInspector]public int min,max;
     
@@ -24,7 +24,7 @@ public class ArrDisplay : MonoBehaviour
         
         if (isRandom)
         {
-            num = UnityEngine.Random.Range(1,13);
+            num = UnityEngine.Random.Range(1,16);
             arrColor = new Color[num];
             arrData = new float[num];
             DataSets = new GameObject[num];
@@ -69,10 +69,9 @@ public class ArrDisplay : MonoBehaviour
                 arrData[i] = i;
                 tempText.text = i.ToString("00");
             }
-            //tempText.color = InvertColor(tempImage.color);
             tempData.transform.SetParent(LayoutDataSet.transform);
             DataSets[i] = tempData;
-            tempData.SetActive(true);
+            
             if (arrData[i] > max)
             {
                 max = (int)arrData[i];
@@ -81,15 +80,9 @@ public class ArrDisplay : MonoBehaviour
             {
                 min = (int)arrData[i];
             }
+            
+            tempData.SetActive(true);
         }
-    }
-
-    private Color InvertColor(Color color)
-    {
-        color.r = 1-color.r;
-        color.g = 1-color.g;
-        color.b = 1-color.b;
-        return color;
     }
 
     public void DestroyArr() 
