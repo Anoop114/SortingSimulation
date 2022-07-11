@@ -8,7 +8,7 @@ public class ArrDisplay : MonoBehaviour
     public GameObject dataSet;
     public GameObject LayoutDataSet;
 
-    [Range(0, 15)]public int num;
+    [Range(0, 13)]public int num;
 
     [HideInInspector]public int min,max;
     
@@ -24,7 +24,7 @@ public class ArrDisplay : MonoBehaviour
         
         if (isRandom)
         {
-            num = UnityEngine.Random.Range(1,15);
+            num = UnityEngine.Random.Range(1,13);
             arrColor = new Color[num];
             arrData = new float[num];
             DataSets = new GameObject[num];

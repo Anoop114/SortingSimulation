@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class Bubble : MonoBehaviour
@@ -9,7 +11,7 @@ public class Bubble : MonoBehaviour
     public ArrDisplay arr;
     public GameObject ArrayPanal;
     public GameObject BarPanal;
-
+    public ResultManager resultManager;
     void Update()
     {
         if (isBubble)
@@ -20,6 +22,25 @@ public class Bubble : MonoBehaviour
     }
 
     public void BubbleSort()
+    {
+        StartCoroutine(SetResult());
+        
+    }
+
+    private IEnumerator SetResult()
+    {
+        //set result data
+        int childCount = ArrayPanal.transform.childCount;
+        for (int i = 0; i < childCount; i++)
+        {
+            GameObject child = Instantiate(ArrayPanal.transform.GetChild(i).gameObject);
+            child.transform.SetParent(resultManager.ActualArray.transform);
+        }
+        yield return new WaitForEndOfFrame();
+        Sorting();
+    }
+
+    private void Sorting()
     {
         int numLength = arr.num;
         flag = true;
@@ -37,13 +58,13 @@ public class Bubble : MonoBehaviour
 
                     //change gameObjects
                     tempGameObject = arr.DataSets[j];
-                    arr.DataSets[j] = arr.DataSets[j+1];
-                    arr.DataSets[j+1] = tempGameObject;
+                    arr.DataSets[j] = arr.DataSets[j + 1];
+                    arr.DataSets[j + 1] = tempGameObject;
 
                     //change actual positions
                     temp = ArrayPanal.transform.GetChild(j + 1).GetSiblingIndex();
-                    ArrayPanal.transform.GetChild(j).SetSiblingIndex(temp);                        
-                    
+                    ArrayPanal.transform.GetChild(j).SetSiblingIndex(temp);
+
 
                     //change Bars
                     temp = BarPanal.transform.GetChild(j + 1).GetSiblingIndex();
