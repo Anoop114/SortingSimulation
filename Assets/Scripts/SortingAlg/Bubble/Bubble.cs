@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.IO;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +15,8 @@ public class Bubble : MonoBehaviour
     public GameObject ArrayPanal;
     public GameObject BarPanal;
     public ResultManager resultManager;
-
+    public FrameCapture screenShot;
+    public float timeCapture = 0;
 
     public void BubbleSort(int call)
     {
@@ -32,15 +35,18 @@ public class Bubble : MonoBehaviour
         yield return new WaitForEndOfFrame();
         if(call == 1)
         {
-            SortingDEC();
+            StartCoroutine(SortingDEC());
         }
         if(call == 0) 
         {
-            SortingASC();
+            StartCoroutine(SortingASC());
         }
+#if UNITY_EDITOR
+        AssetDatabase.Refresh();
+#endif
     }
 
-    private void SortingASC()
+    private IEnumerator SortingASC()
     {
         int numLength = arr.num;
         flag = true;
@@ -70,7 +76,8 @@ public class Bubble : MonoBehaviour
                     temp = BarPanal.transform.GetChild(j).GetSiblingIndex();
                     BarPanal.transform.GetChild(j+1).SetSiblingIndex(temp);
 
-
+                    screenShot.CaptureScreenShot(i, j);
+                    yield return new WaitForSeconds(timeCapture);
                     flag = true;
                 }
 
@@ -85,9 +92,14 @@ public class Bubble : MonoBehaviour
 
             }
         }
+        yield return new WaitForSeconds(1f);
+        screenShot.DisplayTexture();
+        print("capture complete");
+        print(screenShot.textures.Count + " t");
+        print(screenShot.frames.Count + " F");
     }
 
-    private void SortingDEC()
+    private IEnumerator SortingDEC()
     {
         int numLength = arr.num;
         flag = true;
@@ -117,7 +129,8 @@ public class Bubble : MonoBehaviour
                     temp = BarPanal.transform.GetChild(j + 1).GetSiblingIndex();
                     BarPanal.transform.GetChild(j).SetSiblingIndex(temp);
 
-                    
+                    screenShot.CaptureScreenShot(i, j);
+                    yield return new WaitForSeconds(timeCapture);
                     flag = true;
                 }
 
@@ -131,5 +144,10 @@ public class Bubble : MonoBehaviour
                 resultManager.Steps[i-1].SetActive(true);
             }
         }
+        yield return new WaitForSeconds(1f);
+        screenShot.DisplayTexture();
+        print("capture complete");
+        print(screenShot.textures.Count + " t");
+        print(screenShot.frames.Count + " F");
     }
 }

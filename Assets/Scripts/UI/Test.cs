@@ -21,6 +21,6 @@ public class Test : MonoBehaviour
     {
         isGenerate = false;
         arr.DestroyArr();
-        manager.DestroyGraph();
+        manager.DestroyAndCareateGraph();
     }
 }

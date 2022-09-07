@@ -1556,6 +1556,7 @@ GameObject:
   - component: {fileID: 255969518}
   - component: {fileID: 255969520}
   - component: {fileID: 255969521}
+  - component: {fileID: 255969522}
   m_Layer: 5
   m_Name: Bubble
   m_TagString: Untagged
@@ -1581,7 +1582,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -395.5081, y: -178.4177}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &255969520
 CanvasRenderer:
@@ -1600,27 +1601,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 255969517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1735767605, guid: 55db3311111d2d847bb7e7a191eedca3, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!114 &255969522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255969517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846115fcd8c971e45b30949be496a1a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayImages: {fileID: 967731034}
+  texture: {fileID: 255969521}
 --- !u!1 &271449563
 GameObject:
   m_ObjectHideFlags: 0
@@ -3641,6 +3653,7 @@ GameObject:
   - component: {fileID: 967731030}
   - component: {fileID: 967731032}
   - component: {fileID: 967731033}
+  - component: {fileID: 967731034}
   m_Layer: 0
   m_Name: Sorting
   m_TagString: Untagged
@@ -3665,6 +3678,8 @@ MonoBehaviour:
   ArrayPanal: {fileID: 1866328125}
   BarPanal: {fileID: 1402119888}
   resultManager: {fileID: 967731032}
+  screenShot: {fileID: 967731034}
+  timeCapture: 0.5
 --- !u!4 &967731031
 Transform:
   m_ObjectHideFlags: 0
@@ -3730,6 +3745,21 @@ MonoBehaviour:
   initialArray: {fileID: 1866328129}
   graphData: {fileID: 1402119892}
   algoCount: 0
+--- !u!114 &967731034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967731029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f4bfc242db1e9942b316d840caf8105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: TestImage
+  frames: []
+  textures: []
 --- !u!1 &979049574
 GameObject:
   m_ObjectHideFlags: 0

@@ -58,3 +58,6 @@ sysinfo.txt
 *.unitypackage
 
 
+# Temporary auto-generated Android Assets
+/[Aa]ssets/[Ss]treamingAssets/*
+/[Aa]ssets/[Ss]treamingAssets/aa.meta

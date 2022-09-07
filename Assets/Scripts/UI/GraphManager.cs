@@ -1,20 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+#region ScriptInfo
+// This script allow user to create the bar lines on the graph.
+#endregion
 public class GraphManager : MonoBehaviour
 {
+    [Header("Script References")] public ArrDisplay arrayData;
+
+    [Header("GameObject references")]
+    [Tooltip("Canvas Were the barLine is going to added.")]
     public GameObject graphData;
+    [Tooltip("This is the panel where the graph data is going to display.")]
     public GameObject graphPanal;
-    public ArrDisplay arrayData;
+    
 
     void Start()
     {
+        //in start create the graph.
         CreateBar();
     }
 
+    //Graph creation function.
     private void CreateBar()
     {
         int num = arrayData.num;
@@ -33,13 +39,16 @@ public class GraphManager : MonoBehaviour
             tempbar.SetActive(true);
         }
     }
-    public void DestroyGraph()
+    
+    
+    // Destroy the previous graph data and create the graph again.
+    public void DestroyAndCareateGraph()
     {
         int childs = graphPanal.transform.childCount;
         for (int i = childs - 1; i >= 0; i--)
         {
             Destroy(graphPanal.transform.GetChild(i).gameObject);
         }
-        Start();
+        CreateBar();
     }
 }
