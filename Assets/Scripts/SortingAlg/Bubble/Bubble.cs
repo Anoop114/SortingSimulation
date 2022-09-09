@@ -1,9 +1,6 @@
-using System;
 using System.Collections;
-using System.IO;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Bubble : MonoBehaviour
 {
@@ -18,9 +15,9 @@ public class Bubble : MonoBehaviour
     public FrameCapture screenShot;
     public float timeCapture = 0;
 
-    public void BubbleSort(int call)
+    public void BubbleSort(int order)
     {
-        StartCoroutine(SetResult(call));
+        StartCoroutine(SetResult(order));
     }
 
     private IEnumerator SetResult(int call)
@@ -94,9 +91,6 @@ public class Bubble : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
         screenShot.DisplayTexture();
-        print("capture complete");
-        print(screenShot.textures.Count + " t");
-        print(screenShot.frames.Count + " F");
     }
 
     private IEnumerator SortingDEC()
@@ -146,8 +140,5 @@ public class Bubble : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
         screenShot.DisplayTexture();
-        print("capture complete");
-        print(screenShot.textures.Count + " t");
-        print(screenShot.frames.Count + " F");
     }
 }

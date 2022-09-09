@@ -21,7 +21,6 @@ public class FrameCapture : MonoBehaviour
     public void CaptureScreenShot(int num1,int num2)
     {
         DirectoryInfo directoryInfo;
-        //DirectoryInfo screenshotDirectory = Directory.CreateDirectory(directoryName);
         if (File.Exists(Application.streamingAssetsPath))
         {
             directoryInfo = Directory.CreateDirectory(Application.streamingAssetsPath);

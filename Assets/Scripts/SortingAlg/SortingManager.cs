@@ -21,24 +21,36 @@ public class SortingManager : MonoBehaviour
             algoCount = algoSelect.value;
         });
     }
-    public void SortCall(int call)
+    public void SortCall(int order)
     {
+        // not any algo selected
         if(algoCount == 0)
         {
             StartCoroutine(WarningSign());
-            return;
         }
+
+        // bubble short
         if (algoCount == 1)
         {
-            gameObject.GetComponent<Bubble>().BubbleSort(call);
+            //Bubble short function call.
+            gameObject.GetComponent<Bubble>().BubbleSort(order);//order => ASC/DEC
+            
+            //Call Back Button Auto Click
             back.onClick.Invoke();
         }
+
+        // after Shorting Active the Buttons Of shorting.
         foreach (var b in Btns)
         {
             b.SetActive(true);
         }
     }
 
+
+    /// <summary>
+    /// Display the Warning Sign if not any Algol selected.
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator WarningSign()
     {
         //1
