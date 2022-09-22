@@ -2603,7 +2603,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -199.97055}
+  m_AnchoredPosition: {x: 0, y: -149.64789}
   m_SizeDelta: {x: 800, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &532224234
@@ -3073,19 +3073,7 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &793835972
 MonoBehaviour:
@@ -3864,12 +3852,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07643b00c873c8b4f898834999d2ceba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBubble: 0
+  resultManager: {fileID: 967731032}
+  screenShot: {fileID: 967731034}
   arr: {fileID: 144657914}
   ArrayPanal: {fileID: 1866328125}
   BarPanal: {fileID: 1402119888}
-  resultManager: {fileID: 967731032}
-  screenShot: {fileID: 967731034}
   timeCapture: 0.5
 --- !u!4 &967731031
 Transform:
@@ -5143,7 +5130,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

@@ -9,11 +9,11 @@ public class DisplayTextureImages : MonoBehaviour
     public FrameCapture displayImages;
     public RawImage texture;
     public Slider timeSilder;
-    // Start is called before the first frame update
+    
+    
     private void Start()
     {
         Invoke(nameof(StartDisplaying), 2f);
-        
     }
 
     private void StartDisplaying()

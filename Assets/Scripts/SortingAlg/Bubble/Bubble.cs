@@ -2,19 +2,38 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
+
+#region Script_Info
+//bubble short 
+//Added on Shorting Game Object;
+#endregion
 public class Bubble : MonoBehaviour
 {
     GameObject tempGameObject;
     int temp;
     bool flag = true;
-    public bool isBubble;
-    public ArrDisplay arr;
-    public GameObject ArrayPanal;
-    public GameObject BarPanal;
+
+    [Header("Script References")]
+    [Tooltip("Result manager where it Going to store at run Time")]
     public ResultManager resultManager;
+
+    [Tooltip("Every iteration the frame is capture and stored")]
     public FrameCapture screenShot;
+
+    [Tooltip("Displaying the array")]
+    public ArrDisplay arr;
+
+    [Space(10),Header("UI Display")]
+    [Tooltip("Initial Array down display data number")]
+    public GameObject ArrayPanal;
+
+    [Tooltip("Array data bars")]
+    public GameObject BarPanal;
+
+    [Space(10),Tooltip("Capture picture every timeCapture seconds")]
     public float timeCapture = 0;
 
+    //button function to call the bubble short
     public void BubbleSort(int order)
     {
         StartCoroutine(SetResult(order));
@@ -43,6 +62,7 @@ public class Bubble : MonoBehaviour
 #endif
     }
 
+    //short the data in ascending order.
     private IEnumerator SortingASC()
     {
         int numLength = arr.num;
@@ -93,6 +113,8 @@ public class Bubble : MonoBehaviour
         screenShot.DisplayTexture();
     }
 
+
+    //short the data in Descending order.
     private IEnumerator SortingDEC()
     {
         int numLength = arr.num;

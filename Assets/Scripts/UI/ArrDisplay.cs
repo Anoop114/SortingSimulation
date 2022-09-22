@@ -3,37 +3,50 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
+
+#region Script_Info
+// Display all the array data and change randomly 
+// Added on Manager Game Object;
+#endregion
 public class ArrDisplay : MonoBehaviour
 {
+    [Header("GameObject References")]
+    [Tooltip("Prefab of number of data in arrays")]
     public GameObject dataSet;
+    [Tooltip("The area where the data is going to display")]
     public GameObject LayoutDataSet;
 
+    [Tooltip("Number of bar lines")]
     [Range(0, 15)]public int num;
 
+    [Tooltip("Providing the min and max value for bar creation")]
     [HideInInspector]public int min,max;
-    
+
+    [Tooltip("Generate Random Data")]
     [HideInInspector]public bool isRandom;
-    
+
+    [Tooltip("Color of all number and bars")]
     [HideInInspector]public Color[] arrColor;
-    [HideInInspector]public float[] arrData;
+
+    [Tooltip("Array Data numbers")]
+    [HideInInspector]public int[] arrData;
+    [Tooltip("Array Data gameObject")]
     [HideInInspector]public GameObject[] DataSets;
     // Start is called before the first frame update
     void Awake()
-    {
-        
-        
+    { 
         if (isRandom)
         {
             num = UnityEngine.Random.Range(1,16);
             arrColor = new Color[num];
-            arrData = new float[num];
+            arrData = new int[num];
             DataSets = new GameObject[num];
             GenerateRamdomData();
         }
         else
         {
             arrColor = new Color[num];
-            arrData = new float[num];
+            arrData = new int[num];
             DataSets = new GameObject[num];
 
         }
