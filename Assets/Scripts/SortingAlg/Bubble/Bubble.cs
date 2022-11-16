@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
-
 #region Script_Info
 //bubble short 
 //Added on Shorting Game Object;
